@@ -46,7 +46,7 @@ def get_auth_code():
     auth_query_params = st.query_params.to_dict()
     try:
         #auth_code = dict(auth_query_params)["code"][0]
-        auth_code = auth_query_params["code"][0]
+        auth_code = auth_query_params["code"]
     except (KeyError, TypeError):
         auth_code = ""
 
