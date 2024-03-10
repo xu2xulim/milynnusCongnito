@@ -227,7 +227,7 @@ html_css_login = """
 
 </style>
 """
-
+# change from target='_self'
 html_button_login = (
     html_css_login
     + f"<a href='{login_link}' class='button-login' target='_blank'>Log In</a>"
@@ -244,8 +244,7 @@ def button_login():
     Returns:
         Html of the login button.
     """
-    #return st.sidebar.markdown(f"{html_button_login}", unsafe_allow_html=True)
-    return st.link_button ("Login", f"{login_link}")
+    return st.sidebar.markdown(f"{html_button_login}", unsafe_allow_html=True)
 
 def button_logout():
     """
