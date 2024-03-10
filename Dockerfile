@@ -19,4 +19,4 @@ COPY * /app/
 
 # コマンド実行
 # 静的ファイルの使用するにはenableStaticServingオプションを有効にする
-CMD ["streamlit", "run", "--server.port", "8501", "--server.enableStaticServing", "true", "Home.py"]
+CMD ["streamlit", "run", "--server.port=8501", "--server.enableStaticServing", "true", "Home.py"]
