@@ -28,13 +28,14 @@ st.markdown(
 
 # Check authentication when user lands on the home page.
 authenticate.set_st_state_vars()
+with st.sidebar:
+    st.title("SavvyAI on Cognito")
+    st.info("This application is secured by AWS Cognito")
+    # Add login/logout buttons
+    if st.session_state["authenticated"]:
+        authenticate.button_logout()
+        if st.button("1_📈_Plotting_Demo"):
+            st.switch_page("pages/Plotting_Demo.py")
 
-# Add login/logout buttons
-if st.session_state["authenticated"]:
-    authenticate.button_logout()
-    st.write("I am here")
-    if st.button("1_📈_Plotting_Demo"):
-        st.switch_page("pages/Plotting_Demo.py")
-
-else:
-    authenticate.button_login()
+    else:
+        authenticate.button_login()
