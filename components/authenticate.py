@@ -248,7 +248,7 @@ def button_login():
     return st.link_button ("Login", f"{login_link}")
 
 def button_logout():
-    ""
+    """
 
     Returns:
         Html of the logout button.
