@@ -1,22 +1,18 @@
-FROM python:3.11-slim
+FROM python:3.9-slim
 
 WORKDIR /app
 
-RUN apt-get update \
-    && apt-get install --yes --no-install-recommends \
-    gcc \
-    g++ \
+RUN apt-get update && apt-get install -y \
     build-essential \
-    python3-dev \
-    vim
+    curl \
+    software-properties-common \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
-# ライブラリのインストール
-RUN pip install --upgrade pip
-RUN pip install streamlit pandas
+RUN pip3 install -r requirements.txt
 
-# ソースのコピー
-COPY * /app/
+EXPOSE 8501
 
-# コマンド実行
-# 静的ファイルの使用するにはenableStaticServingオプションを有効にする
-CMD ["streamlit", "run", "--server.port=8501", "--server.enableStaticServing", "true", "Home.py"]
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+
+ENTRYPOINT ["streamlit", "run", "Home.py", "--server.port=8501", "--server.address=0.0.0.0"]
