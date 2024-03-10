@@ -200,7 +200,6 @@ def set_st_state_vars():
         st.session_state["authenticated"] = True
         st.session_state["user_cognito_groups"] = user_cognito_groups
 
-
 # -----------------------------
 # Login/ Logout HTML components
 # -----------------------------
