@@ -244,11 +244,11 @@ def button_login():
     Returns:
         Html of the login button.
     """
-    return st.sidebar.markdown(f"{html_button_login}", unsafe_allow_html=True)
-
+    #return st.sidebar.markdown(f"{html_button_login}", unsafe_allow_html=True)
+    return st.link_button ("Login", f"{login_link}")
 
 def button_logout():
-    """
+    ""
 
     Returns:
         Html of the logout button.
