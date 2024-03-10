@@ -249,7 +249,7 @@ def button_login():
 
 def button_logout():
     """
-
+    Test
     Returns:
         Html of the logout button.
     """
