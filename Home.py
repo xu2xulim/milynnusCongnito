@@ -32,5 +32,8 @@ authenticate.set_st_state_vars()
 # Add login/logout buttons
 if st.session_state["authenticated"]:
     authenticate.button_logout()
+    if st.button("1_📈_Plotting_Demo"):
+        st.switch_page("pages/1_📈_Plotting_Demo.py")
+
 else:
     authenticate.button_login()
