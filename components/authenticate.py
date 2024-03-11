@@ -130,7 +130,8 @@ def get_user_info(access_token):
     """
     userinfo_url = f"{COGNITO_DOMAIN}/oauth2/userInfo"
     headers = {
-        "Content-Type": "application/json;charset=UTF-8",
+        #"Content-Type": "application/json;charset=UTF-8",
+        "Content-Type": "application/x-amz-json-1.1",
         "Authorization": f"Bearer {access_token}",
     }
 
