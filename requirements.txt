@@ -2,4 +2,4 @@ altair
 pydeck
 python-dotenv==0.21.0
 streamlit==1.32.0
-boto
+boto3
