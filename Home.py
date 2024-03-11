@@ -1,5 +1,8 @@
 import streamlit as st
 import components.authenticate as authenticate
+import boto3
+
+client = boto3.client('cognito-idp')
 
 st.set_page_config(
     page_title="Home",
@@ -39,6 +42,19 @@ with st.sidebar:
         st.write("Custom Attributes")
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
+        client = boto3.client('milynnus-auth-client-name')
+
+        response = client.update_user_attributes(
+            UserAttributes=[
+                {
+                    'Name': 'custom:status',
+                    'Value': 'active'
+                },
+            ],
+            AccessToken=st.session_state['access_token'],
+    
+        )
+
         if st.button("1_📈_Plotting_Demo"):
             st.switch_page("pages/Plotting_Demo.py")
 
