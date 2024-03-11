@@ -2,8 +2,6 @@ import streamlit as st
 import components.authenticate as authenticate
 import boto3
 
-client = boto3.client('cognito-idp')
-
 st.set_page_config(
     page_title="Home",
     page_icon="👋",
