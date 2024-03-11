@@ -31,6 +31,7 @@ authenticate.set_st_state_vars()
 with st.sidebar:
     st.title("SavvyAI on Cognito")
     st.info("This application is secured by AWS Cognito")
+    st.write(st.session_state)
     # Add login/logout buttons
     if st.session_state["authenticated"]:
         authenticate.button_logout()

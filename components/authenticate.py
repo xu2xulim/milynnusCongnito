@@ -49,7 +49,7 @@ def get_auth_code():
         auth_code = auth_query_params["code"]
     except (KeyError, TypeError):
         auth_code = ""
-
+    st.write(f"auth code {auth_code}")
     return auth_code
 
 
