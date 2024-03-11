@@ -195,6 +195,8 @@ def set_st_state_vars():
     access_token, id_token = get_user_tokens(auth_code)
     user_cognito_groups = get_user_cognito_groups(id_token)
 
+    st.write(get_user_info(access_token))
+
     if access_token != "":
         st.session_state["auth_code"] = auth_code
         st.session_state["authenticated"] = True
