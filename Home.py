@@ -1,8 +1,6 @@
 import streamlit as st
 import components.authenticate as authenticate
 
-from deta import Deta
-
 st.set_page_config(
     page_title="Home",
     page_icon="👋",
