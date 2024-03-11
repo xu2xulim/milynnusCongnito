@@ -35,7 +35,8 @@ with st.sidebar:
     # Add login/logout buttons
     if st.session_state["authenticated"]:
         authenticate.button_logout()
-        st.write(authenticate.get_user_info(authenticate.get_user_tokens(st.session_state['auth_code'])))
+        access_token, id_token = authenticate.get_user_tokens(st.session_state['auth_code'])
+        st.write(authenticate.get_user_info(access_token)
         if st.button("1_📈_Plotting_Demo"):
             st.switch_page("pages/Plotting_Demo.py")
 
