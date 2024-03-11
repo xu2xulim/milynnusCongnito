@@ -36,7 +36,7 @@ with st.sidebar:
     if st.session_state["authenticated"]:
         authenticate.button_logout()
         user_info = authenticate.get_user_info(st.session_state['access_token'])
-        st.write(type("Custom Attributes")
+        st.write("Custom Attributes")
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
         if st.button("1_📈_Plotting_Demo"):
