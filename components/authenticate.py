@@ -196,11 +196,7 @@ def set_st_state_vars():
     access_token, id_token = get_user_tokens(auth_code)
     user_cognito_groups = get_user_cognito_groups(id_token)
 
-    user_info = get_user_info(access_token)
-
     if access_token != "":
-        st.session_state['subscription_status'] = user_info['custom:status']
-        st.session_state['subscription'] = user_info['custom:subscription_plan']
         st.session_state["auth_code"] = auth_code
         st.session_state["authenticated"] = True
         st.session_state["user_cognito_groups"] = user_cognito_groups
