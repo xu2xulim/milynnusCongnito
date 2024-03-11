@@ -49,7 +49,7 @@ def get_auth_code():
         auth_code = auth_query_params["code"]
     except (KeyError, TypeError):
         auth_code = ""
-    st.write(f"auth code {auth_code}")
+ 
     return auth_code
 
 
@@ -206,7 +206,7 @@ def set_st_state_vars():
 # -----------------------------
 # Login/ Logout HTML components
 # -----------------------------
-login_link = f"{COGNITO_DOMAIN}/login?client_id={CLIENT_ID}&response_type=code&scope=email+openid&redirect_uri={APP_URI}"
+login_link = f"{COGNITO_DOMAIN}/login?client_id={CLIENT_ID}&response_type=code&scope=email+openid+profile&redirect_uri={APP_URI}"
 logout_link = f"{COGNITO_DOMAIN}/logout?client_id={CLIENT_ID}&logout_uri={APP_URI}"
 
 html_css_login = """
