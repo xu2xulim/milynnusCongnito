@@ -1,6 +1,8 @@
 import streamlit as st
 import components.authenticate as authenticate
 
+from deta import Deta
+
 st.set_page_config(
     page_title="Home",
     page_icon="👋",
@@ -35,6 +37,7 @@ with st.sidebar:
     # Add login/logout buttons
     if st.session_state["authenticated"]:
         authenticate.button_logout()
+        st.write(authenticate.get_user_info)
         if st.button("1_📈_Plotting_Demo"):
             st.switch_page("pages/Plotting_Demo.py")
 
