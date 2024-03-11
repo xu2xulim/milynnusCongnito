@@ -37,7 +37,7 @@ with st.sidebar:
         authenticate.button_logout()
         user_info = authenticate.get_user_info(st.session_state['access_token']).values
         
-        st.write(user_info.email)
+        st.write(user_info['email'])
         if st.button("1_📈_Plotting_Demo"):
             st.switch_page("pages/Plotting_Demo.py")
 
