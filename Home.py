@@ -42,6 +42,7 @@ with st.sidebar:
         st.write("Custom Attributes")
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
+        # using Boto3
         client = boto3.client('milynnus-auth-client-name')
 
         response = client.update_user_attributes(
