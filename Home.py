@@ -1,6 +1,6 @@
 import streamlit as st
 import components.authenticate as authenticate
-import boto3
+import requests
 
 st.set_page_config(
     page_title="Home",
@@ -41,18 +41,26 @@ with st.sidebar:
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
         # using Boto3
-        client = boto3.client('milynnus-auth-client-name')
-
-        response = client.update_user_attributes(
-            UserAttributes=[
+        userinfo_url = f"{COGNITO_DOMAIN}/oauth2/userInfo"
+        headers = {
+            #"Content-Type": "application/json;charset=UTF-8",
+            "Content-Type": "application/x-amz-json-1.1",
+            "Authorization": f"Bearer {user_info['access_token']}",
+        }
+        payload = {
+            "UserAttributes" : [
                 {
                     'Name': 'custom:status',
                     'Value': 'active'
                 },
-            ],
-            AccessToken=st.session_state['access_token'],
-    
-        )
+            ]}
+
+        userinfo_response = requests.post(userinfo_url, json=payload, headers=headers)
+
+
+        st.write(userinfo_response)
+        
+
 
         if st.button("1_📈_Plotting_Demo"):
             st.switch_page("pages/Plotting_Demo.py")
