@@ -47,6 +47,8 @@ with st.sidebar:
             "Content-Type": "application/x-amz-json-1.1",
             "Authorization": f"Bearer {st.session_state['access_token']}",
             "X-Amz-Target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
+        }
+        payload = {
             "UserAttributes" : [
                 {
                     'Name': 'custom:status',
@@ -55,7 +57,7 @@ with st.sidebar:
             ]
         }
 
-        userinfo_response = requests.post(userinfo_url, headers=headers)
+        userinfo_response = requests.post(userinfo_url, json=payload, headers=headers)
 
 
         st.write(userinfo_response)
