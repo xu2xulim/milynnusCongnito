@@ -37,7 +37,7 @@ with st.sidebar:
     if st.session_state["authenticated"]:
         authenticate.button_logout()
         user_info = authenticate.get_user_info(st.session_state['access_token'])
-        st.write("Custom Attributes")
+        st.write(user_info)
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
         # using Boto3
@@ -49,6 +49,7 @@ with st.sidebar:
             "X-Amz-Target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
         }
         payload = {
+            "AccessToken" : "",
             "UserAttributes" : [
                 {
                     'Name': 'custom:status',
