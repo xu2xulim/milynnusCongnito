@@ -51,7 +51,7 @@ with st.sidebar:
             "X-Amz-Target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
         }
         payload = {
-            "AccessToken" : id_token,
+            "AccessToken" : st.session_state['access_token'],
             "UserAttributes" : [
                 {
                     'Name': 'custom:status',
