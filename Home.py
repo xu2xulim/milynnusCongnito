@@ -55,7 +55,7 @@ with st.sidebar:
                 },
             ]}
 
-        userinfo_response = requests.post(userinfo_url, json=payload, headers=headers)
+        userinfo_response = requests.post(userinfo_url, data=payload, headers=headers)
 
 
         st.write(userinfo_response)
