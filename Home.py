@@ -37,6 +37,8 @@ with st.sidebar:
     if st.session_state["authenticated"]:
         authenticate.button_logout()
         user_info = authenticate.get_user_info(st.session_state['access_token'])
+
+        accees_token, id_token = authenticate.get_user_tokens(st.session_state['auth_code'])
         st.write(user_info)
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
@@ -49,7 +51,7 @@ with st.sidebar:
             "X-Amz-Target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
         }
         payload = {
-            "AccessToken" : "",
+            "AccessToken" : id_token,
             "UserAttributes" : [
                 {
                     'Name': 'custom:status',
