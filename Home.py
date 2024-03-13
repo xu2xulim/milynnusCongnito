@@ -1,7 +1,6 @@
 import streamlit as st
 import components.authenticate as authenticate
 import requests
-from warrant import Cognito
 
 st.set_page_config(
     page_title="Home",
