@@ -46,16 +46,15 @@ with st.sidebar:
             #"Content-Type": "application/json;charset=UTF-8",
             "Content-Type": "application/x-amz-json-1.1",
             "Authorization": f"Bearer {st.session_state['access_token']}",
-        }
-        payload = {
             "UserAttributes" : [
                 {
                     'Name': 'custom:status',
                     'Value': 'active'
                 },
-            ]}
+            ]
+        }
 
-        userinfo_response = requests.post(userinfo_url, data=payload, headers=headers)
+        userinfo_response = requests.post(userinfo_url, headers=headers)
 
 
         st.write(userinfo_response)
