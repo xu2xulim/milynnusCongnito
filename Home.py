@@ -1,6 +1,7 @@
 import streamlit as st
 import components.authenticate as authenticate
 import requests
+from warrant import Cognito
 
 st.set_page_config(
     page_title="Home",
@@ -63,7 +64,7 @@ with st.sidebar:
         userinfo_response = requests.post(userinfo_url, json=payload, headers=headers)
 
 
-        st.write(userinfo_response)
+        st.write(userinfo_response.text)
         
 
 
