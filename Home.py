@@ -45,7 +45,7 @@ with st.sidebar:
         headers = {
             #"Content-Type": "application/json;charset=UTF-8",
             "Content-Type": "application/x-amz-json-1.1",
-            "Authorization": f"Bearer {user_info['access_token']}",
+            "Authorization": f"Bearer {st.session_state['access_token']}",
         }
         payload = {
             "UserAttributes" : [
