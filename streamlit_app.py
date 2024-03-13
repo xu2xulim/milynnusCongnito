@@ -142,7 +142,4 @@ else:
         
 
 
-        if st.button("1_📈_Plotting_Demo"):
-            st.switch_page("pages/Plotting_Demo.py")
-
     
