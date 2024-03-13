@@ -41,7 +41,7 @@ with st.sidebar:
         st.write(user_info['custom:status'])
         st.write(user_info['custom:subscription_plan'])
         # using Boto3
-        userinfo_url = "https://milynnus.auth.ap-southeast-1.amazoncognito.com/oauth2/update_user_attributes"
+        userinfo_url = "https://cognito-idp.ap-southeast-1.amazonaws.com/update_user_attributes"
         headers = {
             #"Content-Type": "application/json;charset=UTF-8",
             "Content-Type": "application/x-amz-json-1.1",
