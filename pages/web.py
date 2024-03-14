@@ -72,8 +72,8 @@ def get_response(user_input):
 st.set_page_config(page_title="Chat with websites", page_icon="🤖")
 st.title("Chat with websites")
 
-if "authentication_status" in st.session_state:
-    if st.session_state['authentication_status']:
+if "authenticated" in st.session_state:
+    if st.session_state['authenticated']:
         pass
     else:
         st.switch_page("streamlit_app.py")

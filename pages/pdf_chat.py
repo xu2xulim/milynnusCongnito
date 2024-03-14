@@ -28,8 +28,8 @@ def main():
     st.set_page_config(page_title="Chat with PDF")
     st.header("Chat your PDF 💬")
 
-    if "authentication_status" in st.session_state:
-        if st.session_state['authentication_status']:
+    if "authenticated" in st.session_state:
+        if st.session_state['authenticated']:
             pass
         else:
             st.switch_page("streamlit_app.py")
