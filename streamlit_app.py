@@ -60,13 +60,13 @@ with st.sidebar:
                     del st.session_state.chat_history
                     st.switch_page("pages/web.py")
 
-                if st.button("Ask your PDF 💬"):
-                    st.switch_page("pages/pdf.py")
+            if st.button("Ask your PDF 💬"):
+                st.switch_page("pages/pdf.py")
 
 
-                if st.button("Chat 💬 with PDF 💬") and st_user['username'] == SAVVYAI_ST_SUPERUSER_USERNAME:
-                    if "chat_history" in st.session_state:
-                        del st.session_state.chat_history
+            if st.button("Chat 💬 with PDF 💬") and st_user['username'] == SAVVYAI_ST_SUPERUSER_USERNAME:
+                if "chat_history" in st.session_state:
+                    del st.session_state.chat_history
                     st.switch_page("pages/pdf_chat.py")
             
             st.divider()
