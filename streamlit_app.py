@@ -36,6 +36,7 @@ st.markdown(
 
 # Check authentication when user lands on the home page.
 authenticate.set_st_state_vars()
+
 if st.session_state["authenticated"]:
     user_info = authenticate.get_user_info(st.session_state['access_token'])
 
@@ -47,7 +48,7 @@ with st.sidebar:
     if st.session_state["authenticated"]:
         authenticate.button_logout()
 
-        st.write('Welcome *%s*' % (st.session_state['name']))
+        st.write('Welcome')
 
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
 
