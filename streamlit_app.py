@@ -78,7 +78,7 @@ with st.sidebar:
 
         # using Boto3
 if st.session_state['authenticated']:
-    if user_info['custom.status'] == 'paid' :
+    if user_info['custom:status'] == 'paid' :
         with st.expander(f"Your are a {user_info['custom:subscription_plan']} subscriber"):
             st.write("Howdy there")
     else:
