@@ -2,6 +2,7 @@ import streamlit as st
 import components.authenticate as authenticate
 import requests
 
+MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME = os.environ.get('MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME')
 if 'clicked' not in st.session_state:
     st.session_state.clicked = False
 
@@ -64,7 +65,7 @@ with st.sidebar:
                 st.switch_page("pages/pdf.py")
 
 
-            if st.button("Chat 💬 with PDF 💬") and st_user['username'] == SAVVYAI_ST_SUPERUSER_USERNAME:
+            if st.button("Chat 💬 with PDF 💬") and user_info['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
                 if "chat_history" in st.session_state:
                     del st.session_state.chat_history
                     st.switch_page("pages/pdf_chat.py")
