@@ -40,7 +40,7 @@ def main():
     pdf = st.file_uploader("Upload your PDF", type="pdf")
 
     if st.button("Return 🏠"):
-        st.switch_page("streamlit_app.py")
+        st.switch_page("pages/home.py")
     
     # extract the text
     if pdf is not None:

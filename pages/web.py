@@ -86,7 +86,7 @@ with st.sidebar:
     website_url = st.text_input("Website URL")
 
     if st.button("Return 🏠"):
-        st.switch_page("streamlit_app.py")
+        st.switch_page("pages/home.py")
 
 if website_url is None or website_url == "":
     st.info("Please enter a website URL")
