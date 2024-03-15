@@ -1,5 +1,5 @@
 import streamlit as st
-from ..components.authenticate import authenticate
+import ..components.authenticate as authenticate
 import requests
 import os
 
