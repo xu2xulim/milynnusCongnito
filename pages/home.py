@@ -1,11 +1,7 @@
 import streamlit as st
+from ..component.authenticate import authenticate
 import requests
 import os
-
-import sys
-
-sys.path.append( '/components' )
-import authenticate
 
 
 MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME = os.environ.get('MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME')
