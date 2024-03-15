@@ -70,6 +70,9 @@ with st.sidebar:
         authenticate.button_login()
 
 
+    st.write(st.session_state)
+
+
 if st.session_state['authenticated']:
     if st.session_state['status'] == 'paid' :
         with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
