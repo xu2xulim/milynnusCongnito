@@ -44,6 +44,8 @@ def get_auth_code():
         Nothing.
     """
     auth_query_params = st.query_params.to_dict()
+
+    st.write(auth_query_params)
     try:
         #auth_code = dict(auth_query_params)["code"][0]
         auth_code = auth_query_params["code"]
