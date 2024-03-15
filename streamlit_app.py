@@ -50,7 +50,7 @@ with st.sidebar:
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
 
 
-        if st.session_state['custom:status'] == 'paid' :
+        if st.session_state['status'] == 'paid' :
 
             if st.button("Chat with Website 🌎"):
                 if "chat_history" in st.session_state:
@@ -71,7 +71,7 @@ with st.sidebar:
 
 
 if st.session_state['authenticated']:
-    if st.session_state['custom:status'] == 'paid' :
+    if st.session_state['status'] == 'paid' :
         with st.expander(f"Your are a {st.session_state['custom:subscription_plan']} subscriber"):
             st.write("Howdy there")
     else:
