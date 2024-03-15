@@ -98,7 +98,7 @@ if st.session_state['authenticated']:
 
                 st.info("Once you have selected your subscription plan, a customised checkout button will be presented for you make payment via Stripe.")
             else:
-                res = requests.post("https://hook.eu2.make.com/02mc5fyg32kxqf1xl4ejs0v1lv9nb9fs", json={"name" : st_user['name'], "email" : st_user['email'], "subscription_name" : st.session_state.subscribe, "path" : "subscription", "return" : "url"})
+                res = requests.post("https://hook.eu2.make.com/02mc5fyg32kxqf1xl4ejs0v1lv9nb9fs", json={"name" : "Fake Lim", "email" : "limhss@gmail.com", "subscription_name" : st.session_state.subscribe, "path" : "subscription", "return" : "url"})
                 if res.status_code == 200:
                     checkout_url = res.json()['url']
                     st.link_button(":blue[Checkout]", f"{checkout_url}")

@@ -12,7 +12,7 @@ def check_subscription():
     st.session_state.clicked = True
 
 st.set_page_config(
-    page_title="Signin",
+    page_title="Login",
     page_icon="👋",
 )
 
@@ -43,83 +43,7 @@ with st.sidebar:
     authenticate.button_login()
     
     # Add login/logout buttons
-    """
-    if st.session_state["authenticated"]:
-        authenticate.button_logout()
-
-        st.write('Welcome')
-
-        st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
-
-        
-        if st.session_state['status'] == 'paid' :
-            if st.session_state['status'] == 'paid' :
-
-                if st.button("Chat with Website 🌎"):
-                    if "chat_history" in st.session_state:
-                        del st.session_state.chat_history
-                    st.switch_page("pages/web.py")
-
-                if st.button("Ask your PDF 💬"):
-                    st.switch_page("pages/pdf.py")
-
-
-                if st.button("Chat 💬 with PDF 💬") and st.session_state['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
-                    if "chat_history" in st.session_state:
-                        del st.session_state.chat_history
-                    st.switch_page("pages/pdf_chat.py")
-           
-    else:
-        authenticate.button_login()
-    """
+    
 
     st.write(st.session_state)
 
-"""
-if st.session_state['authenticated']:
-    if st.session_state['status'] == 'paid' :
-        with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
-            st.write("Howdy there")
-
-            
-    else:
-
-        with st.expander("Please subscribe to use the SavvyAI services"):
-        
-
-            col1, col2, col3 = st.columns(3)
-            
-            if "subscribe" not in st.session_state:
-                with col1: 
-                    if st.button('Basic'):
-                        st.session_state.subscribe = "savvyai_basic"
-                with col2: 
-                    if st.button('Standard'):
-                        st.session_state.subscribe = "savvyai_standard"
-                with col3: 
-                    if st.button('Premium'):
-                        st.session_state.subscribe = "savvyai_premium"
-
-                st.info("Once you have selected your subscription plan, a customised checkout button will be presented for you make payment via Stripe.")
-            else:
-                res = requests.post("https://hook.eu2.make.com/02mc5fyg32kxqf1xl4ejs0v1lv9nb9fs", json={"name" : st_user['name'], "email" : st_user['email'], "subscription_name" : st.session_state.subscribe, "path" : "subscription", "return" : "url"})
-                if res.status_code == 200:
-                    checkout_url = res.json()['url']
-                    st.link_button(":blue[Checkout]", f"{checkout_url}")
-                    st.info("Once payment is made, you profile will be updated and, automatically, enabled for the services subscribed under the plan or you can clicked on the button below to check the status")
-
-                    st.button('Check subscription status', on_click=check_subscription)
-                    if st.session_state.clicked:
-                        # The message and nested widget will remain on the page
-                        st.write('Checking ....')
-                        st.session_state.clicked = False
-                        st.rerun()
-else:
-    st.write("Please login")
-    
-"""
-
-        
-
-
-    
