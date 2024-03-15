@@ -12,7 +12,7 @@ def check_subscription():
     st.session_state.clicked = True
 
 st.set_page_config(
-    page_title="Signin",
+    page_title="Home",
     page_icon="👋",
 )
 
@@ -35,7 +35,14 @@ st.markdown(
 )
 
 # Check authentication when user lands on the home page.
-authenticate.set_st_state_vars()
+#authenticate.set_st_state_vars()
+if "authenticated" in st.session_state:
+    if st.session_state['authenticated']:
+        pass
+    else:
+        st.switch_page("streamlit_app.py")
+else:
+    st.switch_page("streamlit_app.py")
 
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
@@ -49,7 +56,7 @@ with st.sidebar:
 
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
 
-        """
+
         if st.session_state['status'] == 'paid' :
             if st.session_state['status'] == 'paid' :
 
@@ -65,13 +72,12 @@ with st.sidebar:
                 if st.button("Chat 💬 with PDF 💬") and st.session_state['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
                     if "chat_history" in st.session_state:
                         del st.session_state.chat_history
-                    st.switch_page("pages/pdf_chat.py")
-        """   
+                    st.switch_page("pages/pdf_chat.py")    
     else:
         authenticate.button_login()
 
 
-    st.write(st.session_state)
+    #st.write(st.session_state)
 
 
 if st.session_state['authenticated']:
@@ -84,7 +90,7 @@ if st.session_state['authenticated']:
 
         with st.expander("Please subscribe to use the SavvyAI services"):
         
-            
+
             col1, col2, col3 = st.columns(3)
             
             if "subscribe" not in st.session_state:
@@ -113,7 +119,7 @@ if st.session_state['authenticated']:
                         st.session_state.clicked = False
                         st.rerun()
 else:
-    st.write("Please login")
+    st.write("This should never be shown")
     
 
 
