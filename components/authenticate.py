@@ -102,7 +102,7 @@ def get_user_tokens(auth_code):
         "grant_type": "authorization_code",
         "client_id": CLIENT_ID,
         "code": auth_code,
-        "redirect_uri": APP_URI,
+        "redirect_uri": f"{APP_URI}home",
     }
 
     token_response = requests.post(token_url, headers=headers, data=body)
