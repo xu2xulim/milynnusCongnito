@@ -36,9 +36,9 @@ st.markdown(
 )
 
 # Check authentication when user lands on the home page.
-st.write(st.session_state)
+
 authenticate.set_st_state_vars()
-st.write(st.session_state)
+
 
 
 with st.sidebar:

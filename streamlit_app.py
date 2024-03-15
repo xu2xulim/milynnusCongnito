@@ -35,7 +35,7 @@ st.markdown(
 )
 
 # Check authentication when user lands on the home page.
-authenticate.set_st_state_vars()
+#authenticate.set_st_state_vars()
 
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
