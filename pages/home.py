@@ -40,11 +40,9 @@ st.markdown(
 
 authenticate.set_st_state_vars()
 
-st.write(st.session_state)
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
     st.info("This application is secured by AWS Cognito")
-    st.write(st.session_state)
     # Add login/logout buttons
     if st.session_state["authenticated"]:
         if st.button("Logout"):
@@ -57,7 +55,6 @@ with st.sidebar:
         st.write('Welcome')
 
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
-
 
         if st.session_state['status'] == 'paid' :
             if st.session_state['status'] == 'paid' :
@@ -80,9 +77,7 @@ with st.sidebar:
 if st.session_state['authenticated']:
     if st.session_state['status'] == 'paid' :
         with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
-            st.write("Howdy there")
-
-            
+            st.write("Howdy there")            
     else:
 
         with st.expander("Please subscribe to use the SavvyAI services"):
