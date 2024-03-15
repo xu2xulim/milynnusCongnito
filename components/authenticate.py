@@ -264,4 +264,5 @@ def button_logout():
     Returns:
         Html of the logout button.
     """
+    initialise_st_state_vars()
     return st.sidebar.markdown(f"{html_button_logout}", unsafe_allow_html=True)
