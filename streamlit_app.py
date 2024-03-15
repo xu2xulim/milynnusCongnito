@@ -40,8 +40,10 @@ authenticate.set_st_state_vars()
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
     st.info("This application is secured by AWS Cognito")
+    authenticate.button_login()
     
     # Add login/logout buttons
+    """
     if st.session_state["authenticated"]:
         authenticate.button_logout()
 
@@ -49,7 +51,7 @@ with st.sidebar:
 
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
 
-        """
+        
         if st.session_state['status'] == 'paid' :
             if st.session_state['status'] == 'paid' :
 
@@ -66,14 +68,14 @@ with st.sidebar:
                     if "chat_history" in st.session_state:
                         del st.session_state.chat_history
                     st.switch_page("pages/pdf_chat.py")
-        """   
+           
     else:
         authenticate.button_login()
-
+    """
 
     st.write(st.session_state)
 
-
+"""
 if st.session_state['authenticated']:
     if st.session_state['status'] == 'paid' :
         with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
@@ -84,7 +86,7 @@ if st.session_state['authenticated']:
 
         with st.expander("Please subscribe to use the SavvyAI services"):
         
-            
+
             col1, col2, col3 = st.columns(3)
             
             if "subscribe" not in st.session_state:
@@ -115,7 +117,7 @@ if st.session_state['authenticated']:
 else:
     st.write("Please login")
     
-
+"""
 
         
 

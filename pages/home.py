@@ -67,11 +67,6 @@ with st.sidebar:
                     if "chat_history" in st.session_state:
                         del st.session_state.chat_history
                     st.switch_page("pages/pdf_chat.py")    
-    else:
-        authenticate.button_login()
-
-
-    #st.write(st.session_state)
 
 
 if st.session_state['authenticated']:
