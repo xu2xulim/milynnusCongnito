@@ -61,7 +61,7 @@ with st.sidebar:
                 st.switch_page("pages/pdf.py")
 
 
-            if st.button("Chat 💬 with PDF 💬") and user_info['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
+            if st.button("Chat 💬 with PDF 💬") and st.session_state['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
                 if "chat_history" in st.session_state:
                     del st.session_state.chat_history
                 st.switch_page("pages/pdf_chat.py")
@@ -72,7 +72,7 @@ with st.sidebar:
 
 if st.session_state['authenticated']:
     if st.session_state['status'] == 'paid' :
-        with st.expander(f"Your are a {st.session_state['custom:subscription_plan']} subscriber"):
+        with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
             st.write("Howdy there")
     else:
 
