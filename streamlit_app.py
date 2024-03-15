@@ -37,13 +37,6 @@ st.markdown(
 # Check authentication when user lands on the home page.
 authenticate.set_st_state_vars()
 
-if st.session_state["authenticated"]:
-    found = next((u for (u, v) in authenticate.get_user_tokens(st.session_state['auth_code'])),None)
-    if found:
-        user_info = authenticate.get_user_info(found)
-    else:
-        st.warning("User Info not found")
-
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
     st.info("This application is secured by AWS Cognito")
@@ -57,7 +50,7 @@ with st.sidebar:
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
 
 
-        if user_info['custom:status'] == 'paid' :
+        if st.session_state['custom:status'] == 'paid' :
 
             if st.button("Chat with Website 🌎"):
                 if "chat_history" in st.session_state:
@@ -78,8 +71,8 @@ with st.sidebar:
 
 
 if st.session_state['authenticated']:
-    if user_info['custom:status'] == 'paid' :
-        with st.expander(f"Your are a {user_info['custom:subscription_plan']} subscriber"):
+    if st.session_state['custom:status'] == 'paid' :
+        with st.expander(f"Your are a {st.session_state['custom:subscription_plan']} subscriber"):
             st.write("Howdy there")
     else:
 
