@@ -1,7 +1,12 @@
 import streamlit as st
-import ..components/authenticate as authenticate
 import requests
 import os
+
+import sys
+
+sys.path.append( '/components' )
+import authenticate
+
 
 MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME = os.environ.get('MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME')
 if 'clicked' not in st.session_state:
