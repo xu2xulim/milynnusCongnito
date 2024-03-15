@@ -43,7 +43,7 @@ if st.session_state["authenticated"]:
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
     st.info("This application is secured by AWS Cognito")
-    st.write(st.session_state)
+    
     # Add login/logout buttons
     if st.session_state["authenticated"]:
         authenticate.button_logout()
@@ -72,7 +72,7 @@ with st.sidebar:
     else:
         authenticate.button_login()
 
-        # using Boto3
+
 if st.session_state['authenticated']:
     if user_info['custom:status'] == 'paid' :
         with st.expander(f"Your are a {user_info['custom:subscription_plan']} subscriber"):

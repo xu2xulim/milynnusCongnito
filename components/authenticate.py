@@ -193,14 +193,14 @@ def set_st_state_vars():
     """
     initialise_st_state_vars()
     auth_code = get_auth_code()
-    access_token, id_token = get_user_tokens(auth_code)
+    #access_token, id_token = get_user_tokens(auth_code)
     user_cognito_groups = get_user_cognito_groups(id_token)
 
     if access_token != "":
         st.session_state["auth_code"] = auth_code
         st.session_state["authenticated"] = True
         st.session_state["user_cognito_groups"] = user_cognito_groups
-        st.session_state["access_token"] = access_token
+        #st.session_state["access_token"] = access_token
 
 # -----------------------------
 # Login/ Logout HTML components
