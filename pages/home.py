@@ -2,6 +2,7 @@ import streamlit as st
 import components.authenticate as authenticate
 import requests
 import os
+import time
 
 
 MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME = os.environ.get('MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME')
@@ -46,7 +47,12 @@ with st.sidebar:
     st.write(st.session_state)
     # Add login/logout buttons
     if st.session_state["authenticated"]:
-        authenticate.button_logout()
+        if st.button("Logout"):
+            authenticate.initialise_st_state_vars()
+            st.write("All session_states had been reset")
+            with st.spinner('Wait for it...'):
+                time.sleep(5)
+                st.switch_page("streamlit_app.py")
 
         st.write('Welcome')
 
