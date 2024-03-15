@@ -193,11 +193,15 @@ def set_st_state_vars():
     Returns:
         Nothing.
     """
+    st.write("in set_st_state_vars")
     initialise_st_state_vars()
     auth_code = get_auth_code()
+    st.write(f"is auth code {auth_code} the same?")
     access_token, id_token = get_user_tokens(auth_code)
+    st.write(access_token, id_token)
     user_cognito_groups = get_user_cognito_groups(id_token)
     user_info = get_user_info(access_token)
+    st.write(f"{user_info}")
 
     if access_token != "":
         st.session_state["auth_code"] = auth_code

@@ -39,8 +39,7 @@ st.markdown(
 
 authenticate.set_st_state_vars()
 
-
-
+st.write(st.session_state)
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
     st.info("This application is secured by AWS Cognito")
