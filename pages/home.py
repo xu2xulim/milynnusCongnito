@@ -36,13 +36,7 @@ st.markdown(
 
 # Check authentication when user lands on the home page.
 #authenticate.set_st_state_vars()
-if "authenticated" in st.session_state:
-    if st.session_state['authenticated']:
-        pass
-    else:
-        st.switch_page("streamlit_app.py")
-else:
-    st.switch_page("streamlit_app.py")
+
 
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
