@@ -201,6 +201,7 @@ def set_st_state_vars():
         st.session_state["auth_code"] = auth_code
         st.session_state["authenticated"] = True
         st.session_state["user_cognito_groups"] = user_cognito_groups
+        st.session_state['username'] = user_info['username']
         if 'custom:status' in user_info.keys():
             st.session_state["status"] = user_info['custom:status']
         else:
