@@ -38,7 +38,11 @@ st.markdown(
 authenticate.set_st_state_vars()
 
 if st.session_state["authenticated"]:
-    user_info = authenticate.get_user_info(st.session_state['access_token'])
+    found = next((u for (u, v) in authenticate.get_user_tokens(st.session_state['auth_code'])),None)
+    if found:
+        user_info = authenticate.get_user_info(found)
+    else:
+        st.warning("User Info not found")
 
 with st.sidebar:
     st.title("SavvyAI with AWS Cognito")
