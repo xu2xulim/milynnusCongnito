@@ -48,19 +48,9 @@ with st.sidebar:
         st.write('Welcome')
 
         st.write("SavvyAI enables you to use AI on any websites, pdf file, Youtube videos and more....")
-            
-    else:
-        authenticate.button_login()
 
 
-    st.write(st.session_state)
-
-
-if st.session_state['authenticated']:
-    if st.session_state['status'] == 'paid' :
-        with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
-            st.write("Howdy there")
-
+        if st.session_state['status'] == 'paid' :
             if st.session_state['status'] == 'paid' :
 
                 if st.button("Chat with Website 🌎"):
@@ -75,7 +65,20 @@ if st.session_state['authenticated']:
                 if st.button("Chat 💬 with PDF 💬") and st.session_state['username'] == MILYNNUSCOGNITO_ST_SUPERUSER_USERNAME:
                     if "chat_history" in st.session_state:
                         del st.session_state.chat_history
-                    st.switch_page("pages/pdf_chat.py")
+                    st.switch_page("pages/pdf_chat.py")    
+    else:
+        authenticate.button_login()
+
+
+    st.write(st.session_state)
+
+
+if st.session_state['authenticated']:
+    if st.session_state['status'] == 'paid' :
+        with st.expander(f"Your are a {st.session_state['subscription_plan']} subscriber"):
+            st.write("Howdy there")
+
+            
     else:
 
         with st.expander("Please subscribe to use the SavvyAI services"):
