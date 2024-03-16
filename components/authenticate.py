@@ -102,7 +102,7 @@ def get_user_tokens(auth_code):
         "grant_type": "authorization_code",
         "client_id": CLIENT_ID,
         "code": auth_code,
-        "redirect_uri": f"{APP_URI}home",
+        "redirect_uri": APP_URI,
     }
 
     token_response = requests.post(token_url, headers=headers, data=body)
@@ -219,7 +219,7 @@ def set_st_state_vars():
 # -----------------------------
 # Login/ Logout HTML components
 # -----------------------------
-login_link = f"{COGNITO_DOMAIN}/login?client_id={CLIENT_ID}&response_type=code&scope=email+openid+profile+aws.cognito.signin.user.admin&redirect_uri={APP_URI}home"
+login_link = f"{COGNITO_DOMAIN}/login?client_id={CLIENT_ID}&response_type=code&scope=email+openid+profile+aws.cognito.signin.user.admin&redirect_uri={APP_URI}"
 logout_link = f"{COGNITO_DOMAIN}/logout?client_id={CLIENT_ID}&logout_uri={APP_URI}"
 
 html_css_login = """
